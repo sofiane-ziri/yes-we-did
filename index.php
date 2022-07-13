@@ -14,7 +14,9 @@ require_once 'admin/model/connect-bdd.php'; // On inclut la connexion à la base
 	<title>Multiverse by HTML5 UP</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="shortcut icon" href="https://img.icons8.com/ios/50/000000/connectdevelop.png" type="image/x-con">
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<script type="text/javascript" src="assets/js/script.js"></script>
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
@@ -27,11 +29,18 @@ require_once 'admin/model/connect-bdd.php'; // On inclut la connexion à la base
 
 		<!-- Header -->
 		<header id="header">
-			<h1><a href="index.html"><strong>Multiverse</strong> by HTML5 UP</a></h1>
+			<h1><a href="index.php"><strong>Wedid Ben Hamidane</strong> Réalisateur</a></h1>
+			<?php
+			if (isset($_SESSION['user']['id'])) {
+				if ($_SESSION['user']['id'] == 1) {
+					echo '<h1><a class="btn btn-secondary" href="admin.php">Dashboard</a></h1>';
+				}
+			}
+			?>
 			<nav><?php
 					if (isset($_SESSION['user']['id'])) {
 						if ($_SESSION['user']['id'] == 1) {
-							echo '<ul><li><a class="btn btn-secondary" href="admin.php">Dashboard</a></li></ul>';
+							echo '<h1><a class="btn btn-secondary" href="admin/controller/deconnexion.php">Deconnexion</a></h1>';
 						}
 					}
 					?>
@@ -40,22 +49,21 @@ require_once 'admin/model/connect-bdd.php'; // On inclut la connexion à la base
 				</ul>
 			</nav>
 		</header>
-
 		<!-- Main -->
 		<div id="main">
 			<article class="thumb">
-				<!-- fulls = gif -->
-				<a href="images/fulls/01.jpg" class="image"><img src="images/thumbs/01.jpg" alt="" /></a>
+				<!-- Remplacer les (href="images/fulls/) par les iframe vimeo -->
+				<a href="https://vimeo.com/724071791?login=true#_=_" class="image"><img src="images/thumbs/01.jpg" alt="" /></a>
 				<h2>Magna feugiat lorem</h2>
 				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
 			</article>
 			<article class="thumb">
-				<a href="images/fulls/02.jpg" class="image"><img src="images/thumbs/02.jpg" alt="" /></a>
+				<a href="https://vimeo.com/724069122" class="image"><img src="images/thumbs/02.jpg" alt="" /></a>
 				<h2>Nisl adipiscing</h2>
 				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
 			</article>
 			<article class="thumb">
-				<a href="images/fulls/03.jpg" class="image"><img src="images/thumbs/03.jpg" alt="" /></a>
+				<a href="https://vimeo.com/724077963" class="image"><img src="images/thumbs/03.jpg" alt="" /></a>
 				<h2>Tempus aliquam veroeros</h2>
 				<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
 			</article>
@@ -111,22 +119,24 @@ require_once 'admin/model/connect-bdd.php'; // On inclut la connexion à la base
 			<div class="inner split">
 				<div>
 					<section>
-						<h2>Magna feugiat sed adipiscing</h2>
-						<p>Nulla consequat, ex ut suscipit rutrum, mi dolor tincidunt erat, et scelerisque turpis ipsum eget quis orci mattis aliquet. Maecenas fringilla et ante at lorem et ipsum. Dolor nulla eu bibendum sapien. Donec non pharetra dui. Nulla consequat, ex ut suscipit rutrum, mi dolor tincidunt erat, et scelerisque turpis ipsum.</p>
+						<h2>Description</h2>
+						<p>Vidéaste basé sur Genève et ses alentours.Spécialisé en montage. Maîtrise de DaVinci Resolve, Avid, Final cut, Première. Du clip au documentaire, en passant par le cinéma direct au court et long métrage, polyvalence et surtout passionné de cinéma.</p>
 					</section>
 					<section>
 						<h2>Follow me on ...</h2>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-vimeo"><span class="label">Vimeo</span></a></li>
+							<li><a href="#" class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
 						</ul>
 					</section>
 					<p class="copyright">
-						&copy; Unttled. Design: <a href="http://html5up.net">HTML5 UP</a>.
+						&copy; Unttled. Design: HTML5 UP.
 					</p>
 				</div>
 				<div>
 					<section>
-						<h2>Get in touch</h2>
+						<h2>Me contacter</h2>
 						<form method="post">
 							<div class="fields">
 								<div class="field half">
