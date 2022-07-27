@@ -25,4 +25,8 @@ class Admin extends CI_Controller {
 		}
 
 	}
+	public function add_accueil(){
+		$this->admin_model->add_accueil($this->input->post());
+
+	}
 }

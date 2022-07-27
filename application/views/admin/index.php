@@ -37,6 +37,7 @@ text-decoration: none;
 cursor: pointer;
 }
 </style>
+
 <table>
 	<?php foreach ($test as $unique_test){
 	$url=base_url();
@@ -62,7 +63,9 @@ cursor: pointer;
 	<!-- Modal content -->
 	<div class="modal-content">
 		<span class="close">&times;</span>
-		<?php echo form_open() ?>
+		<?php $url2=base_url();
+		$url2.="admin/add_accueil/";
+		echo form_open($url2);?> ?>
 		<label>Iframe</label>
 		<textarea  name="iframe"></textarea>
 		<label>Image</label>
