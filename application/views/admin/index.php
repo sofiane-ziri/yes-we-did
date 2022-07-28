@@ -65,7 +65,7 @@ cursor: pointer;
 		<span class="close">&times;</span>
 		<?php $url2=base_url();
 		$url2.="admin/add_accueil/";
-		echo form_open($url2);?> ?>
+		echo form_open($url2);?>
 		<label>Iframe</label>
 		<textarea  name="iframe"></textarea>
 		<label>Image</label>
