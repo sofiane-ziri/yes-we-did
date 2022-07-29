@@ -1,5 +1,3 @@
-<?php var_dump($accueil)
-?>
 <main>
 	<ul class="gallery">
 		<?php foreach ($accueil as $unique_accueil) : ?>
