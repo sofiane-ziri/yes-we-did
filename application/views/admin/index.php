@@ -19,7 +19,7 @@ background-color: #fefefe;
 margin: auto;
 padding: 20px;
 border: 1px solid #888;
-width: 80%;
+width: 50% !important;
 }
 
 /* The Close Button */
@@ -36,26 +36,58 @@ color: #000;
 text-decoration: none;
 cursor: pointer;
 }
+.modalform{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
 </style>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<h1>Panel Admin Accueil</h1>
 <table>
+	<th>Iframe</th><th>Description Image</th><th>Titre Image</th><th>Paragraphe Image</th>
+
 	<?php foreach ($test as $unique_test){
 	$url=base_url();
 	$url.="admin/crud_accueil/";
 	$url.=$unique_test['id'];
 	echo form_open($url);?>
 <tr>
+	<td>
 	<textarea  name="iframe"><?=$unique_test['iframe']?></textarea>
-	<input type="text" value="<?=$unique_test['image'] ?> " name="image">
-	<input type="text" value="<?=$unique_test['description_image'] ?>" name="description_image">
-	<input type="text" value="<?=$unique_test['titre_image'] ?>" name="titre_image">
-	<input type="text" value="<?=$unique_test['paragraphe_image'] ?>" name="paragraphe_image">
-	<button type="submit" value="<?=$unique_test['id']?>" name="modifier"> Modifier</button>
-	<button type="submit" value="<?=$unique_test['id']?>" name="supprimer"> Supprimer</button>
+	</td>
+<!--	<td>-->
+<!--	<input type="text" class="form-control" value="--><?//=$unique_test['image'] ?><!-- " name="image">-->
+<!--	</td>-->
+	<td>
+		<input type="text" class="form-control" value="<?=$unique_test['description_image'] ?>" name="description_image">
+	</td>
+	<td>
+	<input type="text" class="form-control" value="<?=$unique_test['titre_image'] ?>" name="titre_image">
+	</td>
+	<td>
+	<input type="text" class="form-control" value="<?=$unique_test['paragraphe_image'] ?>" name="paragraphe_image">
+	</td>
+	<td>
+	<button type="submit" class="btn btn-warning" value="<?=$unique_test['id']?>" name="modifier"> Modifier</button>
+	</td>
+	<td>
+	<button type="submit" class="btn btn-danger" value="<?=$unique_test['id']?>" name="supprimer"> Supprimer</button>
+	</td>
+<?php  echo form_close();?>
+	<td>
+		<?php echo form_open_multipart("admin/do_upload/" . $unique_test['id']);?>
+		<input type="file" class='form-control' name="userfile" size="20" />
+	</td>
+	<td>
+		<button type="submit" class="btn btn-success"><i class="far fa-images"></i></button>
+		</form>
+	</td>
 </tr>
-<?php  echo form_close();}?>
+	<?php };?>
+
 </table>
-<button id="myBtn">Open Modal</button>
+<button id="myBtn" class="btn btn-success">Ajouter Accueil</button>
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -65,17 +97,17 @@ cursor: pointer;
 		<span class="close">&times;</span>
 		<?php $url2=base_url();
 		$url2.="admin/add_accueil/";
-		echo form_open($url2);?>
-		<label>Iframe</label>
-		<textarea  name="iframe"></textarea>
-		<label>Image</label>
-		<input type="text" name="image">
-		<label>Description image</label>
-		<input type="text" name="description_image">
-		<label>Titre Image</label>
-		<input type="text" name="titre_image">
-		<label> Paragraphe Image</label>
-		<input type="text" name="paragraphe_image">
+		echo form_open($url2, array('class'=>'modalform'));?>
+		<label class="form-label">Iframe</label>
+		<textarea class="form-control" name="iframe"></textarea>
+		<label class="form-label">Image </label>
+		<input type="text" class="form-control" name="image">
+		<label class="form-label">Description image</label>
+		<input type="text" class="form-control" name="description_image">
+		<label class="form-label">Titre Image</label>
+		<input type="text" class="form-control" name="titre_image">
+		<label class="form-label"> Paragraphe Image</label>
+		<input type="text" class="form-control" name="paragraphe_image">
 		<button type="submit"  name="ajouter">Ajouter</button>
 		<?php echo form_close() ?>
 	</div>

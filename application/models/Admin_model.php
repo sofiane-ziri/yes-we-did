@@ -33,7 +33,7 @@ class Admin_model extends CI_Model {
 	public function add_accueil($data_accueil){
 		$data = array(
 			'iframe' => $data_accueil['iframe'],
-			'image'  => $data_accueil['image'],
+//			'image'  => $data_accueil['image'],
 			'description_image'  => $data_accueil['description_image'],
 			'titre_image'=>$data_accueil['titre_image'],
 			'paragraphe_image'=>$data_accueil['paragraphe_image'],
@@ -41,5 +41,11 @@ class Admin_model extends CI_Model {
 		);
 
 		$this->db->insert('accueil', $data);
+	}
+	public function change_image($filename, $id){
+		
+		$this->db->set('image', $filename);
+		$this->db->where('id', $id);
+		$this->db->update('accueil');
 	}
 }

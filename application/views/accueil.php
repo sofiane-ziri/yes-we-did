@@ -7,7 +7,7 @@
 	<li style="; height:100%; max-height: 85vh">
 		<button type="button" class="mybtn imagecontainer" data-toggle="modal" data-target="#exampleModalLong">
 			<figure class="figureproduit">
-			<img  class="imggallery"style="max-height:98vh" src="https://images3.alphacoders.com/951/95115.jpg">
+			<img  class="imggallery" style="max-height:98vh" src="<?=base_url()?>/css/image/<?=$unique_accueil['image']?>">
 			<figcaption class="produitinfo">
 				<h4><?=$unique_accueil['titre_image']?></h4>
 				<h5>caca</h5>

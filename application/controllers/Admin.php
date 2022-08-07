@@ -29,4 +29,27 @@ class Admin extends CI_Controller {
 		$this->admin_model->add_accueil($this->input->post());
 
 	}
+	public function do_upload($id){
+		$config['upload_path']          = "./css/image";
+		$config['allowed_types']        = 'gif|jpg|png|jpeg';
+		$config['max_size']             = 5000;
+		$config['file_ext_tolower']		= TRUE;
+		$config['remove_spaces'] 		= TRUE;
+		$config['detect_mime']			= TRUE;
+
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+		if ( !$this->upload->do_upload('userfile'))
+		{
+			
+			$error = array('error' => $this->upload->display_errors());
+		}
+		else
+		{
+
+			$data = array('upload_data' => $this->upload->data());
+			$this->admin_model->change_image($this->upload->data('file_name'),$id);
+//			redirect('/admin/dashboard_collaboration');
+		}
+	}
 }
